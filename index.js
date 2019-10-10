@@ -35,6 +35,14 @@ class TabBar extends Component {
     lastSelectedIndex: null
   };
 
+  componentDidMount() {
+    let defaultIndex = this.props.autoSelect
+      ? Number(this.props.autoSelect)
+      : 0;
+    this.startAnimation(defaultIndex);
+    this.setState({lastSelectedIndex: defaultIndex});
+  }
+
   _renderButtons = () => {
     return this.props.values.map((item, index) => {
       const animatedItemStyle = {
