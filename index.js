@@ -10,7 +10,7 @@ import {
 import PropTypes from "prop-types";
 import ViewOverflow from "react-native-view-overflow";
 
-const AnimatedViewOverflow = Animated.createAnimatedComponent(ViewOverflow);
+const AnimatedViewOverflow = Animated.createAnimatedComponent(View);
 
 class TabBar extends Component {
   constructor(props) {
