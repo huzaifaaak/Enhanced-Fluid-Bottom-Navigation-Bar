@@ -47,7 +47,10 @@ This component requires just 2 props. `onPress` function, that should handle ren
 
 ## Customization
 
-Optionally you can pass `tintColor` prop, to adjust styling to your app.
+Prop | Type | Default | Description
+--- | --- | --- | ---
+tintColor | String | rgb(76, 83, 221) | Adjusts icon background color and text color to suit your app.
+autoSelect | Number | 0 | Auto-selects the tab at this index on mount.
 
 ## Author
 

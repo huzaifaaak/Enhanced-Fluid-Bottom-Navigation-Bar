@@ -5,12 +5,10 @@ import {
   TouchableWithoutFeedback,
   Animated,
   Easing,
-  Image
+  Image,
+  View
 } from "react-native";
 import PropTypes from "prop-types";
-import ViewOverflow from "react-native-view-overflow";
-
-const AnimatedViewOverflow = Animated.createAnimatedComponent(View);
 
 class TabBar extends Component {
   constructor(props) {
@@ -37,7 +35,7 @@ class TabBar extends Component {
 
   componentDidMount() {
     let defaultIndex = this.props.autoSelect
-      ? Number(this.props.autoSelect)
+      ? this.props.autoSelect
       : 0;
     this.startAnimation(defaultIndex);
     this.setState({lastSelectedIndex: defaultIndex});
@@ -118,7 +116,7 @@ class TabBar extends Component {
             this.props.onPress(index);
           }}
         >
-          <AnimatedViewOverflow style={[styles.item, animatedItemStyle]}>
+          <Animated.View style={[styles.item, animatedItemStyle]}>
             <Image
               style={styles.itemMask}
               source={require("./assets/mask.png")}
@@ -149,7 +147,7 @@ class TabBar extends Component {
                 {item.title}
               </Animated.Text>
             </Animated.View>
-          </AnimatedViewOverflow>
+          </Animated.View>
         </TouchableWithoutFeedback>
       );
     });
@@ -212,9 +210,9 @@ class TabBar extends Component {
 
   render() {
     return (
-      <AnimatedViewOverflow style={styles.container}>
+      <Animated.View style={styles.container}>
         {this._renderButtons()}
-      </AnimatedViewOverflow>
+      </Animated.View>
     );
   }
 }
@@ -227,7 +225,8 @@ TabBar.propTypes = {
       icon: PropTypes.number.isRequired
     })
   ),
-  tintColor: PropTypes.string
+  tintColor: PropTypes.string,
+  autoSelect: PropTypes.number
 };
 
 const styles = {
