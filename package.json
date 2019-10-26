@@ -1,17 +1,19 @@
 {
-  "name": "fluidbottomnavigation-rn",
-  "version": "0.1.1",
-  "description": "Animated Tab Bar Component for React Native",
+  "name": "enhanced-fluid-bottom-navigation-bar",
+  "version": "0.1.2",
+  "description": "Enhanced version of 10clouds' FluidBottomNavigation for React Native",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/10clouds/FluidBottomNavigation-rn.git"
+    "url": "git+https://github.com/victorli08/enhanced-fluid-bottom-navigation-bar.git"
   },
   "keywords": [
     "react-native",
+    "expo",
+    "vector-icons",
     "tabbar",
     "animated",
     "navigation",
@@ -19,12 +21,12 @@
     "ios",
     "android"
   ],
-  "author": "Patryk Mierzejewski",
+  "author": "Victor Li",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/10clouds/FluidBottomNavigation-rn/issues"
+    "url": "https://github.com/victorli08/enhanced-fluid-bottom-navigation-bar/issues"
   },
-  "homepage": "https://github.com/10clouds/FluidBottomNavigation-rn#readme",
+  "homepage": "https://github.com/victorli08/enhanced-fluid-bottom-navigation-bar#readme",
   "dependencies": {
     "@expo/vector-icons": "^10.0.6"
   },
