@@ -10,6 +10,55 @@ import {
 } from "react-native";
 import PropTypes from "prop-types";
 
+import {
+  AntDesign,
+  Entypo,
+  EvilIcons,
+  Feather,
+  FontAwesome,
+  FontAwesome5,
+  Foundation,
+  Ionicons,
+  MaterialIcons,
+  MaterialCommunityIcons,
+  Octicons,
+  SimpleLineIcons,
+  Zocial
+} from '@expo/vector-icons';
+
+function getIconSetFromName(name) {
+  switch (name) {
+    case 'AntDesign':
+      return AntDesign;
+    case 'Entypo':
+      return Entypo;
+    case 'EvilIcons':
+      return EvilIcons;
+    case 'Feather':
+      return Feather;
+    case 'FontAwesome':
+      return FontAwesome;
+    case 'FontAwesome5':
+      return FontAwesome5;
+    case 'Foundation':
+      return Foundation;
+    case 'Ionicons':
+      return Ionicons;
+    case 'MaterialIcons':
+      return MaterialIcons;
+    case 'MaterialCommunityIcons':
+      return MaterialCommunityIcons;
+    case 'Octicons':
+      return Octicons;
+    case 'SimpleLineIcons':
+      return SimpleLineIcons;
+    case 'Zocia':
+      return Zocia;
+    default:
+      return MaterialIcons;
+  }
+}
+
 class TabBar extends Component {
   constructor(props) {
     super(props);
@@ -66,6 +115,8 @@ class TabBar extends Component {
       const animatedImageStyle = {
         tintColor: animatedColorValues
       };
+
+      const Icon = getIconSetFromName(item.iconSet);
 
       const animatedMiniBubbleTranslateValues = this.animatedMiniBubbleValues[
         index
@@ -135,7 +186,9 @@ class TabBar extends Component {
                 animatedMiniBubbleStyle
               ]}
             />
-            <Animated.Image source={item.icon} style={animatedImageStyle} />
+            <Animated.Text style={{color: animatedImageStyle.tintColor}}>
+              <Icon name={item.icon} size={item.size} solid/>
+            </Animated.Text>
             <Animated.View style={[styles.titleContainer, animatedTitleStyle]}>
               <Animated.Text
                 numberOfLines={1}
@@ -222,7 +275,9 @@ TabBar.propTypes = {
   values: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      icon: PropTypes.number.isRequired
+      icon: PropTypes.string.isRequired,
+      iconSet: PropTypes.string.isRequired,
+      size: PropTypes.number.isRequired
     })
   ),
   tintColor: PropTypes.string,

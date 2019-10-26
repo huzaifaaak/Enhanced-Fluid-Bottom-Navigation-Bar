@@ -6,6 +6,12 @@
 
 The Animated Tab Bar for React Native
 
+Improvements made by me, @VictorLi08, over the original:
+- Added Expo compatibility by removing `react-native-view-overflow`.
+- Added integrated vector icons via [@expo/vector-icons](https://github.com/expo/vector-icons) (should work for normal React Native projects as well!)
+- Tab bar now auto-selects first tab index.
+- Removed support for icons via image source (because only 20x20 icons fit, and most 20x20 icons are ugly).
+
 ![Sample](https://raw.githubusercontent.com/10clouds/FluidBottomNavigation-rn/master/static/sample.gif)
 
 ## Example
@@ -36,14 +42,17 @@ This component requires just 2 props. `onPress` function, that should handle ren
 <TabBar
   onPress={(tabIndex) => { this._handlePress(tabIndex) }}
   values={[
-    { title: "News", icon: require("./assets/news.png") },
-    { title: "Requests", icon: require("./assets/requests.png") },
-    { title: "Events", icon: require("./assets/events.png") },
-    { title: "Members", icon: require("./assets/members.png") },
-    { title: "Account", icon: require("./assets/account.png") }
+    {
+      title: "News",      // required
+      icon: 'news',       // required
+      iconSet: 'Entypo',  // required
+      size: 32            // required
+    }
   ]}
 />
 ```
+
+Look up valid icon names and their corresponding icon set at the [@expo/vector-icons directory](https://expo.github.io/vector-icons/).
 
 ## Customization
 
