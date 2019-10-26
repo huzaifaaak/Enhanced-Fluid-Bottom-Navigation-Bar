@@ -105,7 +105,8 @@ class TabBar extends Component {
 
       const animatedColorValues = this.animatedImageValues[index].interpolate({
         inputRange: [0, 1],
-        outputRange: [this.props.tintColor, "rgb(255, 255, 255)"]
+        outputRange: [this.props.tintColor, this.props.backgroundColor
+          ? this.props.backgroundColor : 'white']
       });
 
       const animatedBubbleStyle = {
@@ -167,9 +168,20 @@ class TabBar extends Component {
             this.props.onPress(index);
           }}
         >
-          <Animated.View style={[styles.item, animatedItemStyle]}>
+          <Animated.View style={{
+            ...styles.item,
+            ...animatedItemStyle,
+            backgroundColor: this.props.backgroundColor
+              ? this.props.backgroundColor
+              : 'white'
+          }}>
             <Image
-              style={styles.itemMask}
+              style={{
+                ...styles.itemMask,
+                tintColor: this.props.backgroundColor
+                  ? this.props.backgroundColor
+                  : 'white'
+              }}
               source={require("./assets/mask.png")}
             />
             <Animated.View
@@ -263,7 +275,12 @@ class TabBar extends Component {
 
   render() {
     return (
-      <Animated.View style={styles.container}>
+      <Animated.View style={{
+        ...styles.container,
+        backgroundColor: this.props.backgroundColor
+          ? this.props.backgroundColor
+          : 'white'
+      }}>
         {this._renderButtons()}
       </Animated.View>
     );
@@ -281,6 +298,7 @@ TabBar.propTypes = {
     })
   ),
   tintColor: PropTypes.string,
+  backgroundColor: PropTypes.string,
   autoSelect: PropTypes.number
 };
 
@@ -291,10 +309,8 @@ const styles = {
     width: "100%",
     justifyContent: "space-around",
     alignItems: "center",
-    backgroundColor: "white"
   },
   item: {
-    backgroundColor: "white",
     borderRadius: 30,
     height: 60,
     width: 60,
@@ -302,7 +318,6 @@ const styles = {
     justifyContent: "center"
   },
   itemMask: {
-    tintColor: "white",
     position: "absolute"
   },
   bubble: {
@@ -310,7 +325,7 @@ const styles = {
     alignSelf: "center",
     height: 17,
     width: 17,
-    backgroundColor: "#4C53DD",
+    backgroundColor: 'rgb(76, 83, 221)',
     borderRadius: 8.5
   },
   miniBubble: {
@@ -318,7 +333,7 @@ const styles = {
     alignSelf: "center",
     width: 22,
     height: 22,
-    backgroundColor: "#4C53DD",
+    backgroundColor: 'rgb(76, 83, 221)',
     borderRadius: 11
   },
   titleContainer: {
