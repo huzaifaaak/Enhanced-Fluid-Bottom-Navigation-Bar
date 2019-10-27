@@ -1,49 +1,49 @@
 # Enhanced Fluid Bottom Navigation Bar
 
-[![NpmVersion](https://img.shields.io/npm/v/fluidbottomnavigation-rn.svg?style=flat-square)](https://www.npmjs.com/package/fluidbottomnavigation-rn)
-[![NpmLicense](https://img.shields.io/npm/l/fluidbottomnavigation-rn.svg?style=flat-square)](https://www.npmjs.com/package/fluidbottomnavigation-rn)
+[![NpmVersion](https://img.shields.io/npm/v/enhanced-fluid-bottom-navigation-bar.svg?style=flat-square)](https://www.npmjs.com/package/enhanced-fluid-bottom-navigation-bar)
+[![NpmLicense](https://img.shields.io/npm/l/enhanced-fluid-bottom-navigation-bar.svg?style=flat-square)](https://www.npmjs.com/package/enhanced-fluid-bottom-navigation-bar)
 [![Expo](https://img.shields.io/badge/expo-compatible-green.svg?style=flat-square)](https://expo.io/)
 
 This is an enhanced version of [10clouds' fluid tab bar for React Native](https://github.com/10clouds/FluidBottomNavigation-rn).
 
 Changes made by me, @VictorLi08, over the original:
 - Added Expo compatibility by removing `react-native-view-overflow` and the need to link it.
-- Added integrated vector icons via [@expo/vector-icons](https://github.com/expo/vector-icons) so you need not supply your own icons (this should work for normal React Native projects as well!).
+- Added integrated vector icons via [@expo/vector-icons](https://github.com/expo/vector-icons) so you don't have to supply your own icons.
 - Tab bar now auto-selects first tab index on mount (this behavior is customizable).
 - Tab bar background color is now fully customizable.
-- Removed support for icons via image source (because good-looking 20x20 icons are hard to find and even the best 20x20 icon pales in comparison to FontAwesome).
+- Icons via image source is now deprecated.
 - Removed example project in favor of expanded usage documentation.
 
-![Sample](https://raw.githubusercontent.com/10clouds/FluidBottomNavigation-rn/master/static/sample.gif)
+![Sample](https://raw.githubusercontent.com/VictorLi08/Enhanced-Fluid-Bottom-Navigation-Bar/master/static/sample.gif)
 
 ## Installation
 
-### [npm](https://npmjs.com)
-```
-npm i enhanced-fluid-bottom-navigation-bar
-```
-
-### yarn
+### yarn (recommended)
 ```
 yarn add enhanced-fluid-bottom-navigation-bar
+```
+
+### npm
+```
+npm i enhanced-fluid-bottom-navigation-bar
 ```
 
 ## Usage
 
 ### Rendering Component
 This component requires just 2 props:
-- `onPress` a function that should handle rendering tabs
-- `values` an array of objects that contains the title and icon properties for each tab.
+- `onPress`: a function that should handle rendering tabs.
+- `values`: an array of objects that contains the title and icon properties for each tab.
 
 ```JSX
 <TabBar
   onPress={(tabIndex) => { this._handlePress(tabIndex) }}
   values={[
     {
-      title: 'News',      // string, required
-      icon: 'news',       // string, required
-      iconSet: 'Entypo',  // string, required
-      size: 32            // number, required (icon will be size x size)
+      title: 'News',      // required
+      icon: 'news',       // required
+      iconSet: 'Entypo',  // required
+      size: 32            // required (icon will be size x size)
     }
   ]}
 />
@@ -112,15 +112,15 @@ const myAppContainer = createAppContainer(myTabNavigator)
 
 Prop | Type | Default | Description
 --- | --- | --- | ---
-tintColor | String | rgb(76, 83, 221) | Adjusts icon bubble background color and text color.
-backgroundColor | String | rgb(76, 83, 221) | Adjusts tab bar background color and icon tint color when selected.
+tintColor | String | rgb(76, 83, 221) | Icon bubble background color and text color.
+backgroundColor | String | rgb(255, 255, 255) | Tab bar background color and icon tint color when selected.
 autoSelect | Number | 0 | Auto-selects the tab at this index on mount.
 
 ## Author
 
 __Original Author:__ [Patryk Mierzejewski](https://github.com/pmierzejewski)
 
-__Improvements By:__ [Victor Li](https://github.com/victorli08)
+__Modifications By:__ [Victor Li](https://github.com/victorli08)
 
 ## License
 
