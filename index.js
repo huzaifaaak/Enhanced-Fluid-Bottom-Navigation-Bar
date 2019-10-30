@@ -105,8 +105,8 @@ class TabBar extends Component {
 
       const animatedColorValues = this.animatedImageValues[index].interpolate({
         inputRange: [0, 1],
-        outputRange: [this.props.tintColor, this.props.backgroundColor
-          ? this.props.backgroundColor : 'white']
+        outputRange: [this.props.tintColor, this.props.selectColor
+          ? this.props.selectColor : 'rgb(255, 255, 255)']
       });
 
       const animatedBubbleStyle = {
@@ -114,7 +114,7 @@ class TabBar extends Component {
       };
 
       const animatedImageStyle = {
-        tintColor: animatedColorValues
+        tintColor: animatedColorValues,
       };
 
       const Icon = getIconSetFromName(item.iconSet);
@@ -173,14 +173,14 @@ class TabBar extends Component {
             ...animatedItemStyle,
             backgroundColor: this.props.backgroundColor
               ? this.props.backgroundColor
-              : 'white'
+              : 'rgb(255, 255, 255)'
           }}>
             <Image
               style={{
                 ...styles.itemMask,
                 tintColor: this.props.backgroundColor
                   ? this.props.backgroundColor
-                  : 'white'
+                  : 'rgb(255, 255, 255)'
               }}
               source={require("./assets/mask.png")}
             />
@@ -279,7 +279,7 @@ class TabBar extends Component {
         ...styles.container,
         backgroundColor: this.props.backgroundColor
           ? this.props.backgroundColor
-          : 'white'
+          : 'rgb(255, 255, 255)'
       }}>
         {this._renderButtons()}
       </Animated.View>
@@ -298,6 +298,7 @@ TabBar.propTypes = {
     })
   ),
   tintColor: PropTypes.string,
+  selectColor: PropTypes.string,
   backgroundColor: PropTypes.string,
   autoSelect: PropTypes.number
 };

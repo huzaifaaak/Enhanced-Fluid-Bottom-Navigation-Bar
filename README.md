@@ -11,6 +11,7 @@ Changes made by me, @VictorLi08, over the original:
 - Added integrated vector icons via [@expo/vector-icons](https://github.com/expo/vector-icons) so you don't have to supply your own icons.
 - Tab bar now auto-selects first tab index on mount (this behavior is customizable).
 - Tab bar background color is now fully customizable.
+- Icon highlight color on select is now fully customizable.
 - Icons via image source is now deprecated.
 - Removed example project in favor of expanded usage documentation.
 
@@ -113,7 +114,8 @@ const myAppContainer = createAppContainer(myTabNavigator)
 Prop | Type | Default | Description
 --- | --- | --- | ---
 tintColor | String | rgb(76, 83, 221) | Icon bubble background color and text color.
-backgroundColor | String | rgb(255, 255, 255) | Tab bar background color and icon tint color when selected.
+selectColor | String | rgb(255, 255, 255) | Icon tint or highlight color when selected.
+backgroundColor | String | rgb(255, 255, 255) | Tab bar background color.
 autoSelect | Number | 0 | Auto-selects the tab at this index on mount.
 
 ## Author
