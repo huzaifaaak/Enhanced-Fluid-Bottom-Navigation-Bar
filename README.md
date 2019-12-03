@@ -6,7 +6,7 @@
 
 This is an enhanced version of [10clouds' fluid tab bar for React Native](https://github.com/10clouds/FluidBottomNavigation-rn).
 
-Changes made by me, @VictorLi08, over the original:
+Changes:
 - Added Expo compatibility by removing `react-native-view-overflow` and the need to link it.
 - Added integrated vector icons via [@expo/vector-icons](https://github.com/expo/vector-icons) so you don't have to supply your own icons.
 - Tab bar now auto-selects first tab index on mount (this behavior is customizable).
@@ -118,6 +118,8 @@ tintColor | String | rgb(76, 83, 221) | Icon bubble background color and text co
 selectColor | String | rgb(255, 255, 255) | Icon tint or highlight color when selected.
 backgroundColor | String | rgb(255, 255, 255) | Tab bar background color.
 autoSelect | Number | 0 | Auto-selects the tab at this index on mount.
+fontSize | Number | 15 | Font size for tab captions.
+fontFamily | String | 'serif' | Font family for tab captions.
 
 ## Author
 
