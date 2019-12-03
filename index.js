@@ -206,6 +206,8 @@ class TabBar extends Component {
                 numberOfLines={1}
                 adjustsFontSizeToFit={true}
                 style={{
+                  fontSize: this.props.fontSize ? this.props.fontSize : 15,
+                  fontFamily: this.props.fontFamily ? this.props.fontFamily : 'serif',
                   color: this.props.tintColor
                 }}
               >
@@ -300,7 +302,9 @@ TabBar.propTypes = {
   tintColor: PropTypes.string,
   selectColor: PropTypes.string,
   backgroundColor: PropTypes.string,
-  autoSelect: PropTypes.number
+  autoSelect: PropTypes.number,
+  fontSize: PropTypes.number,
+  fontFamily: PropTypes.string
 };
 
 const styles = {

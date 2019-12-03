@@ -12,7 +12,8 @@ Changes made by me, @VictorLi08, over the original:
 - Tab bar now auto-selects first tab index on mount (this behavior is customizable).
 - Tab bar background color is now fully customizable.
 - Icon highlight color on select is now fully customizable.
-- Icons via image source is now deprecated.
+- Icon font size and font family is now fully customizable.
+- Deprecated the ability to provide image sources for icon images.
 - Removed example project in favor of expanded usage documentation.
 
 ![Sample](https://raw.githubusercontent.com/VictorLi08/Enhanced-Fluid-Bottom-Navigation-Bar/master/static/sample.gif)
