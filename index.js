@@ -206,7 +206,7 @@ class TabBar extends Component {
                 numberOfLines={1}
                 adjustsFontSizeToFit={true}
                 style={{
-                  fontSize: this.props.fontSize ? this.props.fontSize : 15,
+                  fontSize: this.props.fontSize ? this.props.fontSize : undefined,
                   fontFamily: this.props.fontFamily ? this.props.fontFamily : undefined,
                   color: this.props.tintColor
                 }}
