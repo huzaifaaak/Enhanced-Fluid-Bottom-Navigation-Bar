@@ -7,7 +7,7 @@
 This is an enhanced version of [10clouds' fluid tab bar for React Native](https://github.com/10clouds/FluidBottomNavigation-rn).
 
 What's New in 0.2.1:
-- Fixed an issue where the default font family causes an error with `expo-font` in newer versions of Expo.
+- Fixed an issue where the default font family causes an `expo-font` error in newer versions of Expo.
 - Fixed an issue where font scales poorly for long tab names when font size is specified.
 
 Changelog:
