@@ -6,9 +6,10 @@
 
 This is an enhanced version of [10clouds' fluid tab bar for React Native](https://github.com/10clouds/FluidBottomNavigation-rn).
 
-What's New in 0.2.2:
+What's New in 0.2.2/0.2.3:
 - Fixed and issue where `Zocial` icons were not being rendered properly.
 - Formatting and linting.
+- Optimized dependencies.
 
 Changelog:
 - Added Expo compatibility by removing `react-native-view-overflow` and the need to link it.
