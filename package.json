@@ -27,11 +27,13 @@
     "url": "https://github.com/valisoftworks/enhanced-fluid-bottom-navigation-bar/issues"
   },
   "homepage": "https://github.com/valisoftworks/enhanced-fluid-bottom-navigation-bar#readme",
+  "dependencies": {
+    "@expo/vector-icons": ">=10.0.6"
+  },
   "peerDependencies": {
     "prop-types": "^15.6.2",
     "react": ">=16.0.0",
-    "react-native": ">=0.55.0",
-    "@expo/vector-icons": ">=10.0.6"
+    "react-native": ">=0.55.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.6",
