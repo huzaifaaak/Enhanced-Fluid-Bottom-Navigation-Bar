@@ -4,7 +4,7 @@
 [![NpmLicense](https://img.shields.io/npm/l/enhanced-fluid-bottom-navigation-bar.svg?style=flat-square)](https://www.npmjs.com/package/enhanced-fluid-bottom-navigation-bar)
 [![Expo](https://img.shields.io/badge/expo-compatible-green.svg?style=flat-square)](https://expo.io/)
 
-This is an enhanced version of [10clouds' fluid tab bar for React Native](https://github.com/10clouds/FluidBottomNavigation-rn).
+This project improves the customization of [10clouds' fluid tab bar for React Native](https://github.com/10clouds/FluidBottomNavigation-rn).
 
 What's New in 0.2.2/0.2.3:
 - Fixed and issue where `Zocial` icons were not being rendered properly.
