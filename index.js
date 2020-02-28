@@ -52,8 +52,8 @@ function getIconSetFromName(name) {
       return Octicons;
     case 'SimpleLineIcons':
       return SimpleLineIcons;
-    case 'Zocia':
-      return Zocia;
+    case 'Zocial':
+      return Zocial;
     default:
       return MaterialIcons;
   }
