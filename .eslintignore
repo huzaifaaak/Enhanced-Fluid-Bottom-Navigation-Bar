@@ -1,0 +1,6 @@
+node_modules
+assets
+.expo
+.expo-shared
+tests
+*.config.js

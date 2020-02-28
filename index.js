@@ -1,14 +1,6 @@
-/*global require*/
-
-import React, { Component } from "react";
-import {
-  TouchableWithoutFeedback,
-  Animated,
-  Easing,
-  Image,
-  View
-} from "react-native";
-import PropTypes from "prop-types";
+import React, {Component} from 'react';
+import {TouchableWithoutFeedback, Animated, Easing, Image} from 'react-native';
+import PropTypes from 'prop-types';
 
 import {
   AntDesign,
@@ -52,8 +44,8 @@ function getIconSetFromName(name) {
       return Octicons;
     case 'SimpleLineIcons':
       return SimpleLineIcons;
-    case 'Zocia':
-      return Zocia;
+    case 'Zocial':
+      return Zocial;
     default:
       return MaterialIcons;
   }
@@ -75,7 +67,7 @@ class TabBar extends Component {
   }
 
   static defaultProps = {
-    tintColor: "rgb(76, 83, 221)"
+    tintColor: 'rgb(76, 83, 221)'
   };
 
   state = {
@@ -83,9 +75,7 @@ class TabBar extends Component {
   };
 
   componentDidMount() {
-    let defaultIndex = this.props.autoSelect
-      ? this.props.autoSelect
-      : 0;
+    let defaultIndex = this.props.autoSelect ? this.props.autoSelect : 0;
     this.startAnimation(defaultIndex);
     this.setState({lastSelectedIndex: defaultIndex});
   }
@@ -93,7 +83,7 @@ class TabBar extends Component {
   _renderButtons = () => {
     return this.props.values.map((item, index) => {
       const animatedItemStyle = {
-        transform: [{ translateY: this.animatedItemValues[index] }]
+        transform: [{translateY: this.animatedItemValues[index]}]
       };
 
       const animatedBubbleScaleValues = this.animatedBubbleValues[
@@ -105,16 +95,18 @@ class TabBar extends Component {
 
       const animatedColorValues = this.animatedImageValues[index].interpolate({
         inputRange: [0, 1],
-        outputRange: [this.props.tintColor, this.props.selectColor
-          ? this.props.selectColor : 'rgb(255, 255, 255)']
+        outputRange: [
+          this.props.tintColor,
+          this.props.selectColor ? this.props.selectColor : 'rgb(255, 255, 255)'
+        ]
       });
 
       const animatedBubbleStyle = {
-        transform: [{ scale: animatedBubbleScaleValues }]
+        transform: [{scale: animatedBubbleScaleValues}]
       };
 
       const animatedImageStyle = {
-        tintColor: animatedColorValues,
+        tintColor: animatedColorValues
       };
 
       const Icon = getIconSetFromName(item.iconSet);
@@ -135,7 +127,7 @@ class TabBar extends Component {
 
       const animatedMiniBubbleStyle = {
         opacity: animatedMiniBubbleHeightValues,
-        transform: [{ translateY: animatedMiniBubbleTranslateValues }]
+        transform: [{translateY: animatedMiniBubbleTranslateValues}]
       };
 
       const animatedTitleValues = this.animatedBubbleValues[index].interpolate({
@@ -144,7 +136,7 @@ class TabBar extends Component {
       });
 
       const animatedTitleStyle = {
-        transform: [{ translateY: animatedTitleValues }]
+        transform: [{translateY: animatedTitleValues}]
       };
 
       return (
@@ -168,13 +160,15 @@ class TabBar extends Component {
             this.props.onPress(index);
           }}
         >
-          <Animated.View style={{
-            ...styles.item,
-            ...animatedItemStyle,
-            backgroundColor: this.props.backgroundColor
-              ? this.props.backgroundColor
-              : 'rgb(255, 255, 255)'
-          }}>
+          <Animated.View
+            style={{
+              ...styles.item,
+              ...animatedItemStyle,
+              backgroundColor: this.props.backgroundColor
+                ? this.props.backgroundColor
+                : 'rgb(255, 255, 255)'
+            }}
+          >
             <Image
               style={{
                 ...styles.itemMask,
@@ -182,32 +176,36 @@ class TabBar extends Component {
                   ? this.props.backgroundColor
                   : 'rgb(255, 255, 255)'
               }}
-              source={require("./assets/mask.png")}
+              source={require('./assets/mask.png')}
             />
             <Animated.View
               style={[
                 styles.bubble,
-                { backgroundColor: this.props.tintColor },
+                {backgroundColor: this.props.tintColor},
                 animatedBubbleStyle
               ]}
             />
             <Animated.View
               style={[
                 styles.miniBubble,
-                { backgroundColor: this.props.tintColor },
+                {backgroundColor: this.props.tintColor},
                 animatedMiniBubbleStyle
               ]}
             />
             <Animated.Text style={{color: animatedImageStyle.tintColor}}>
-              <Icon name={item.icon} size={item.size} solid/>
+              <Icon name={item.icon} size={item.size} solid />
             </Animated.Text>
             <Animated.View style={[styles.titleContainer, animatedTitleStyle]}>
               <Animated.Text
                 numberOfLines={1}
                 adjustsFontSizeToFit={true}
                 style={{
-                  fontSize: this.props.fontSize ? this.props.fontSize : undefined,
-                  fontFamily: this.props.fontFamily ? this.props.fontFamily : undefined,
+                  fontSize: this.props.fontSize
+                    ? this.props.fontSize
+                    : undefined,
+                  fontFamily: this.props.fontFamily
+                    ? this.props.fontFamily
+                    : undefined,
                   color: this.props.tintColor
                 }}
               >
@@ -277,12 +275,14 @@ class TabBar extends Component {
 
   render() {
     return (
-      <Animated.View style={{
-        ...styles.container,
-        backgroundColor: this.props.backgroundColor
-          ? this.props.backgroundColor
-          : 'rgb(255, 255, 255)'
-      }}>
+      <Animated.View
+        style={{
+          ...styles.container,
+          backgroundColor: this.props.backgroundColor
+            ? this.props.backgroundColor
+            : 'rgb(255, 255, 255)'
+        }}
+      >
         {this._renderButtons()}
       </Animated.View>
     );
@@ -309,46 +309,46 @@ TabBar.propTypes = {
 
 const styles = {
   container: {
-    flexDirection: "row",
+    flexDirection: 'row',
     height: 60,
-    width: "100%",
-    justifyContent: "space-around",
-    alignItems: "center",
+    width: '100%',
+    justifyContent: 'space-around',
+    alignItems: 'center'
   },
   item: {
     borderRadius: 30,
     height: 60,
     width: 60,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   itemMask: {
-    position: "absolute"
+    position: 'absolute'
   },
   bubble: {
-    position: "absolute",
-    alignSelf: "center",
+    position: 'absolute',
+    alignSelf: 'center',
     height: 17,
     width: 17,
     backgroundColor: 'rgb(76, 83, 221)',
     borderRadius: 8.5
   },
   miniBubble: {
-    position: "absolute",
-    alignSelf: "center",
+    position: 'absolute',
+    alignSelf: 'center',
     width: 22,
     height: 22,
     backgroundColor: 'rgb(76, 83, 221)',
     borderRadius: 11
   },
   titleContainer: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 };
 
