@@ -1,6 +1,6 @@
 {
   "name": "enhanced-fluid-bottom-navigation-bar",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Enhanced version of 10clouds' FluidBottomNavigation for React Native",
   "main": "index.js",
   "scripts": {
@@ -27,15 +27,11 @@
     "url": "https://github.com/valisoftworks/enhanced-fluid-bottom-navigation-bar/issues"
   },
   "homepage": "https://github.com/valisoftworks/enhanced-fluid-bottom-navigation-bar#readme",
-  "dependencies": {
-    "@expo/vector-icons": "^10.0.6",
-    "global": "^4.4.0",
-    "prettier": "^1.19.1"
-  },
   "peerDependencies": {
     "prop-types": "^15.6.2",
     "react": ">=16.0.0",
-    "react-native": ">=0.55.0"
+    "react-native": ">=0.55.0",
+    "@expo/vector-icons": ">=10.0.6"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.6",
@@ -49,6 +45,7 @@
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-native": "^3.8.1",
     "jest": "23.4.2",
+    "prettier": "^1.19.1",
     "react": ">=16.0.0",
     "react-native": ">=0.55.0",
     "react-test-renderer": "16.4.1"
