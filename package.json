@@ -1,6 +1,6 @@
 {
   "name": "enhanced-fluid-bottom-navigation-bar",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Enhanced version of 10clouds' FluidBottomNavigation for React Native",
   "main": "index.js",
   "scripts": {
