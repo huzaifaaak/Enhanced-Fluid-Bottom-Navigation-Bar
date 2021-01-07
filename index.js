@@ -2,55 +2,6 @@ import React, {Component} from 'react';
 import {TouchableWithoutFeedback, Animated, Easing, Image} from 'react-native';
 import PropTypes from 'prop-types';
 
-import {
-  AntDesign,
-  Entypo,
-  EvilIcons,
-  Feather,
-  FontAwesome,
-  FontAwesome5,
-  Foundation,
-  Ionicons,
-  MaterialIcons,
-  MaterialCommunityIcons,
-  Octicons,
-  SimpleLineIcons,
-  Zocial
-} from '@expo/vector-icons';
-
-function getIconSetFromName(name) {
-  switch (name) {
-    case 'AntDesign':
-      return AntDesign;
-    case 'Entypo':
-      return Entypo;
-    case 'EvilIcons':
-      return EvilIcons;
-    case 'Feather':
-      return Feather;
-    case 'FontAwesome':
-      return FontAwesome;
-    case 'FontAwesome5':
-      return FontAwesome5;
-    case 'Foundation':
-      return Foundation;
-    case 'Ionicons':
-      return Ionicons;
-    case 'MaterialIcons':
-      return MaterialIcons;
-    case 'MaterialCommunityIcons':
-      return MaterialCommunityIcons;
-    case 'Octicons':
-      return Octicons;
-    case 'SimpleLineIcons':
-      return SimpleLineIcons;
-    case 'Zocial':
-      return Zocial;
-    default:
-      return MaterialIcons;
-  }
-}
-
 class TabBar extends Component {
   constructor(props) {
     super(props);
@@ -109,7 +60,7 @@ class TabBar extends Component {
         tintColor: animatedColorValues
       };
 
-      const Icon = getIconSetFromName(item.iconSet);
+      // const Icon = getIconSetFromName(item.iconSet);
 
       const animatedMiniBubbleTranslateValues = this.animatedMiniBubbleValues[
         index
@@ -192,9 +143,7 @@ class TabBar extends Component {
                 animatedMiniBubbleStyle
               ]}
             />
-            <Animated.Text style={{color: animatedImageStyle.tintColor}}>
-              <Icon name={item.icon} size={item.size} solid />
-            </Animated.Text>
+              <Animated.Image source={item.icon} style={{width: 30, height: 30, }} resizeMode={'contain'} />
             <Animated.View style={[styles.titleContainer, animatedTitleStyle]}>
               <Animated.Text
                 numberOfLines={1}
@@ -241,7 +190,8 @@ class TabBar extends Component {
       }),
       Animated.timing(this.animatedImageValues[index], {
         toValue: 1,
-        duration: 800
+        duration: 800,
+        useNativeDriver: true
       })
     ]).start();
   };
@@ -268,7 +218,8 @@ class TabBar extends Component {
       Animated.timing(this.animatedImageValues[index], {
         toValue: 0,
         duration: 400,
-        delay: 350
+        delay: 350,
+        useNativeDriver: true
       })
     ]).start();
   };
@@ -294,7 +245,7 @@ TabBar.propTypes = {
   values: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      icon: PropTypes.string.isRequired,
+      icon: PropTypes.number.isRequired,
       iconSet: PropTypes.string.isRequired,
       size: PropTypes.number.isRequired
     })
@@ -353,3 +304,4 @@ const styles = {
 };
 
 export default TabBar;
+
