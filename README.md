@@ -50,15 +50,12 @@ This component requires just 2 props:
   values={[
     {
       title: 'News',      // required
-      icon: 'news',       // required
-      iconSet: 'Entypo',  // required
+      icon: news,       // required
       size: 32            // required (icon will be size x size)
     }
   ]}
 />
 ```
-
-Look up valid icon names and their corresponding icon set at the [@expo/vector-icons directory](https://expo.github.io/vector-icons/).
 
 ### Integration with `react-navigation`
 1. Define a custom component that renders `TabBar` with the `values` you want. React's tab navigator will pass `navigation` and `onTabPress` props to your component when hooked up; use these to implement the `onPress` callback to navigate to the appropriate route:
@@ -66,55 +63,65 @@ Look up valid icon names and their corresponding icon set at the [@expo/vector-i
 ``` JSX
 import TabBar from 'enhanced-fluid-bottom-navigation-bar';
 
-class FluidTabBar extends Component {
-  render() {
-    return (
-      <TabBar
-        onPress={tabIndex => {
-          const route = this.props.navigation.state.routes[tabIndex];
-          this.props.onTabPress({route});
-        }}
-        values={[
-          {
-            title: 'Tab 1',
-            icon: 'star',     
-            iconSet: 'MaterialIcons',
-            size: 32          
-          }, {
-            title: 'Tab 2',
-            icon: 'check',     
-            iconSet: 'AntDesign',
-            size: 32          
-          }
-        ]}
-      />
-    );
-  }
+import Icon1 from '/images/icon1.png';
+import Icon2 from './images/icon2.png';
+
+function MyTabs() {
+  return (
+    <Tab.Navigator
+      tabBar={props =>
+        <TabBar {...props}
+          onPress={(tabIndex) => {
+            const { state, navigation } = props;
+            const route = props.state.routes[tabIndex];
+            const isFocused = state.index === tabIndex;
+            const event = navigation.emit({
+              type: 'tabPress',
+              target: route.key,
+              canPreventDefault: true,
+            });
+
+            if (!isFocused && !event.defaultPrevented) {
+              navigation.navigate(route.name);
+            }
+          }}
+          values={[
+            {
+              title: 'Tab1',
+              icon: Icon1
+            }, {
+              title: 'Tab2',
+              icon: Icon2
+            },
+            {
+              title: 'Tab 3',
+              icon: Icon1
+            }, {
+              title: 'Tab 4',
+              icon: Icon2
+            }
+          ]}
+        />}
+    >
+      <Tab.Screen name="Tab1" component={Tab1} />
+      <Tab.Screen name="Tab2" component={Tab2} />
+      <Tab.Screen name="Tab3" component={Tab3} />
+      <Tab.Screen name="Tab4" component={Tab4} />
+    </Tab.Navigator>
+  );
 }
-  ```
+
+```
 In this case, pressing a tab in `FluidTabBar` navigates to the route that shares the same array index.
 
-2. Create a tab navigator and supply our custom component to `tabBarComponent`.
+2. Pass MyTabs in the stack navigator
+
 ``` javascript
-import {createBottomTabNavigator} from 'react-navigation-tabs';
-
-const myTabNavigator = createBottomTabNavigator(
-  {  // RouteConfigs
-    Tab1: { screen: Tab1Screen },
-    Tab2: { screen: Tab2Screen },
-  },
-  {
-    initialRouteName: 'Tab1',
-    tabBarComponent: FluidTabBar,
-  }
-);
-```
-
-3. Create an app container from your tab navigator and use it as your top-level component.
-``` javascript
-import {createAppContainer} from 'react-navigation';
-
-const myAppContainer = createAppContainer(myTabNavigator)
+<Stack.Navigator
+  initialRouteName="Tabs"
+  headerMode="none">
+    <Stack.Screen name="Tabs" component={MyTabs} />
+</Stack.Navigator>
 ```
 
 ## Customization
@@ -135,6 +142,8 @@ NOTE: fontSize and fontFamily default to React Native's standard font size and f
 __Original Author:__ [Patryk Mierzejewski](https://github.com/pmierzejewski)
 
 __Modifications By:__ [Victor Li](https://github.com/victorli08)
+
+__Modifications By:__ [Huzaifa K](https://github.com/huzaifaaak)
 
 ## License
 
