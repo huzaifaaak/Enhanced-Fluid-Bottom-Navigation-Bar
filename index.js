@@ -143,7 +143,7 @@ class TabBar extends Component {
                 animatedMiniBubbleStyle
               ]}
             />
-              <Animated.Image source={item.icon} style={{width: item.size ? item.size : 30, height: item.size ? item.size : 30, tintColor: index === this.state.lastSelectedIndex ? this.props.backgroundColor : "rgb(77,89,102)" }} resizeMode={'contain'} />
+              <Animated.Image source={item.icon} style={{width: item.size ? item.size : 30, height: item.size ? item.size : 30, tintColor: index === this.state.lastSelectedIndex ? this.props.backgroundColor : "rgb(48,155,66)" }} resizeMode={'contain'} />
             <Animated.View style={[styles.titleContainer, animatedTitleStyle]}>
               <Animated.Text
                 numberOfLines={1}
