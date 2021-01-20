@@ -13,14 +13,12 @@ What's New in 0.2.2/0.2.3:
 
 Changelog:
 - Added Expo compatibility by removing `react-native-view-overflow` and the need to link it.
-- Added integrated vector icons via [@expo/vector-icons](https://github.com/expo/vector-icons) so you don't have to supply your own icons.
 - Tab bar now auto-selects first tab index on mount (this behavior is customizable).
 - Tab bar background color is now fully customizable.
 - Icon highlight color on select is now fully customizable.
 - Icon font size and font family is now fully customizable.
 - Deprecated the ability to provide image sources for icon images.
 - Removed example project in favor of expanded usage documentation.
-- Fixed an issue where the default font family causes an `expo-font` error in newer versions of Expo.
 - Fixed an issue where font scales poorly for long tab names when font size is not specified.
 
 ![Sample](https://raw.githubusercontent.com/VictorLi08/Enhanced-Fluid-Bottom-Navigation-Bar/master/static/sample.gif)
@@ -29,12 +27,12 @@ Changelog:
 
 ### yarn (recommended)
 ```
-yarn add enhanced-fluid-bottom-navigation-bar
+yarn add https://github.com/huzaifaaak/Enhanced-Fluid-Bottom-Navigation-Bar.git
 ```
 
 ### npm
 ```
-npm i enhanced-fluid-bottom-navigation-bar
+npm i https://github.com/huzaifaaak/Enhanced-Fluid-Bottom-Navigation-Bar.git
 ```
 
 ## Usage
