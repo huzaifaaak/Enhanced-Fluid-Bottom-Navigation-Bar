@@ -291,6 +291,8 @@ const styles = {
   },
   itemMask: {
     position: 'absolute',
+    height: 30,
+    width: 30,
   },
   bubble: {
     position: 'absolute',
