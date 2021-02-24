@@ -172,6 +172,8 @@ class TabBar extends Component {
                     ? this.props.fontFamily
                     : undefined,
                   color: this.props.tintColor,
+                  width: 120,
+                  textAlign: 'center',
                 }}
               >
                 {item.title}
