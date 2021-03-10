@@ -311,7 +311,7 @@ const styles = {
     height: isTablet ? RFValue(50) : 17,
     width: isTablet ? RFValue(50) : 17,
     backgroundColor: 'rgb(76, 83, 221)',
-    borderRadius: isTablet ? 25 : 8.5,
+    borderRadius: isTablet ? RFValue(25) : 8.5,
   },
   miniBubble: {
     position: 'absolute',
