@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {TouchableWithoutFeedback, Animated, Easing, Image} from 'react-native';
+import {RFValue} from 'react-native-responsive-fontsize';
 import {isTablet} from 'react-native-device-info';
 import PropTypes from 'prop-types';
 
