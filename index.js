@@ -44,7 +44,14 @@ class TabBar extends Component {
         inputRange: [0, 0.25, 0.4, 0.525, 0.8, 1],
         outputRange: isTablet
           ? [0.01, 1, 0.65, 0.65, 1.2, 1]
-          : [0.01, 3, 1.65, 1.65, 3.2, 3],
+          : [
+              0.01,
+              RFValue(3),
+              RFValue(1.65),
+              RFValue(1.65),
+              RFValue(3.2),
+              RFValue(3),
+            ],
       });
 
       const animatedColorValues = this.animatedImageValues[index].interpolate({
@@ -71,14 +78,14 @@ class TabBar extends Component {
         index
       ].interpolate({
         inputRange: [0, 1],
-        outputRange: [13, 0],
+        outputRange: [RFValue(13), 0],
       });
 
       const animatedMiniBubbleHeightValues = this.animatedMiniBubbleValues[
         index
       ].interpolate({
         inputRange: [0, 0.01, 1],
-        outputRange: [0, 1, 1],
+        outputRange: [0, RFValue(1), RFValue(1)],
       });
 
       const animatedMiniBubbleStyle = {
@@ -88,7 +95,7 @@ class TabBar extends Component {
 
       const animatedTitleValues = this.animatedBubbleValues[index].interpolate({
         inputRange: [0, 1],
-        outputRange: [60, 60],
+        outputRange: [RFValue(60), RFValue(60)],
       });
 
       const animatedTitleStyle = {
@@ -188,7 +195,7 @@ class TabBar extends Component {
   startAnimation = (index) => {
     Animated.parallel([
       Animated.timing(this.animatedItemValues[index], {
-        toValue: -30,
+        toValue: -RFValue(30),
         duration: 500,
         delay: 300,
         easing: Easing.in(Easing.elastic(1.5)),
@@ -250,6 +257,7 @@ class TabBar extends Component {
           backgroundColor: this.props.backgroundColor
             ? this.props.backgroundColor
             : 'rgb(255, 255, 255)',
+          elevation: 25,
         }}
       >
         {this._renderButtons()}
@@ -279,38 +287,38 @@ TabBar.propTypes = {
 const styles = {
   container: {
     flexDirection: 'row',
-    height: 60,
+    height: RFValue(60),
     width: '100%',
     justifyContent: 'space-around',
     alignItems: 'center',
   },
   item: {
-    borderRadius: 30,
-    height: 60,
-    width: 60,
+    borderRadius: RFValue(30),
+    height: RFValue(60),
+    width: RFValue(60),
     alignItems: 'center',
     justifyContent: 'center',
   },
   itemMask: {
     position: 'absolute',
-    height: 30,
-    width: 30,
+    height: RFValue(30),
+    width: RFValue(30),
   },
   bubble: {
     position: 'absolute',
     alignSelf: 'center',
-    height: isTablet ? 50 : 17,
-    width: isTablet ? 50 : 17,
+    height: isTablet ? RFValue(50) : 17,
+    width: isTablet ? RFValue(50) : 17,
     backgroundColor: 'rgb(76, 83, 221)',
     borderRadius: isTablet ? 25 : 8.5,
   },
   miniBubble: {
     position: 'absolute',
     alignSelf: 'center',
-    width: 22,
-    height: 22,
+    width: RFValue(22),
+    height: RFValue(22),
     backgroundColor: 'rgb(76, 83, 221)',
-    borderRadius: 11,
+    borderRadius: RFValue(11),
   },
   titleContainer: {
     position: 'absolute',
